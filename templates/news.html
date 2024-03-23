@@ -14,16 +14,105 @@
         {% endfor %}
     </p>
     <p>
-        {{ form.content.label }}<br>
-        {{ form.content(class="form-control") }}<br>
-        {% for error in form.content.errors %}
+        {{ form.quest.label }}<br>
+        {{ form.quest(class="form-control") }}<br>
+        {% for error in form.quest.errors %}
             <p content="alert alert-danger" role="alert">
                 {{ error }}
             </p>
         {% endfor %}
     </p>
-    <p>{{ form.is_private() }} {{ form.is_private.label }}</p>
-    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    <p>
+        {{ form.a_1.label }}<br>
+        {{ form.a_1(class="form-control") }}<br>
+        {% for error in form.a_1.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.a_2.label }}<br>
+        {{ form.a_2(class="form-control") }}<br>
+        {% for error in form.a_2.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.a_3.label }}<br>
+        {{ form.a_3(class="form-control") }}<br>
+        {% for error in form.a_3.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+    <p>
+        {{ form.a_4.label }}<br>
+        {{ form.a_4(class="form-control") }}<br>
+        {% for error in form.a_4.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+    <p>
+        {{ form.r_a.label }}<br>
+        {{ form.r_a(class="form-control") }}<br>
+        {% for error in form.r_a.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+    <p>
+        {{ form.ball.label }}<br>
+        {{ form.ball(class="form-control") }}<br>
+        {% for error in form.ball.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+    <p>{{ form.submit(type="submit", class="btn btn-danger") }}</p>
     {{message}}
+
 </form>
 {% endblock %}
+<!--{% for item in tests%}-->
+<!--<div class="col-md6 border rounded">-->
+<!--    <h2>{{item.quest}}</h2>-->
+
+<!--    <div class="form-check">-->
+<!--        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">-->
+<!--        <label class="form-check-label" for="flexRadioDefault1">-->
+<!--            {{item.a_1}}-->
+<!--        </label>-->
+<!--    </div>-->
+<!--    -->
+<!--    <div class="form-check">-->
+<!--        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">-->
+<!--        <label class="form-check-label" for="flexRadioDefault1">-->
+<!--            {{item.a_2}}-->
+<!--        </label>-->
+<!--    </div>-->
+<!--    -->
+<!--    <div class="form-check">-->
+<!--        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">-->
+<!--        <label class="form-check-label" for="flexRadioDefault1">-->
+<!--            {{item.a_3}}-->
+<!--        </label>-->
+<!--    </div>-->
+<!--    -->
+<!--    <div class="form-check">-->
+<!--        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">-->
+<!--        <label class="form-check-label" for="flexRadioDefault1">-->
+<!--            {{item.a_4}}-->
+<!--        </label>-->
+<!--    </div>-->

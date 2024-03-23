@@ -21,7 +21,7 @@ class User(SqlAlchemyBase, UserMixin):
     created_date = sqlalchemy.Column(sqlalchemy.DateTime,
                                      default=datetime.datetime.now)
 
-    news = orm.relationship("Tests", back_populates='user')
+    test = orm.relationship("Tests", back_populates='user')
 
     def __repr__(self):
         return f'{self.name} - {self.email} - {self.created_date}'

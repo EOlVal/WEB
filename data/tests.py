@@ -8,16 +8,19 @@ from .db_session import SqlAlchemyBase
 
 
 class Tests(SqlAlchemyBase):
-    __tablename__ = 'news'
+    __tablename__ = 'tests'
 
     id = sqlalchemy.Column(sqlalchemy.Integer,
                            primary_key=True, autoincrement=True)
     title = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    content = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    created_date = sqlalchemy.Column(sqlalchemy.DateTime,
-                                     default=datetime.datetime.now)
-    is_private = sqlalchemy.Column(sqlalchemy.Boolean, default=True)
+    quest = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    a_1 = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    a_2 = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    a_3 = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    a_4 = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    r_a = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    ball = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
 
-    user_id = sqlalchemy.Column(sqlalchemy.Integer,
-                                sqlalchemy.ForeignKey("users.id"))
-    user = orm.relationship('User')
+    theme_id = sqlalchemy.Column(sqlalchemy.Integer,
+                                 sqlalchemy.ForeignKey("theme.id"))
+    theme = orm.relationship('Theme')
