@@ -5,12 +5,12 @@ from wtforms.validators import DataRequired
 
 
 class TestForm(FlaskForm):
-    title = StringField('Название теста', validators=[DataRequired()])
+    title = StringField('Тема теста:', validators=[DataRequired()])
     quest = StringField('Вопрос:', validators=[DataRequired()])
-    a_1 = RadioField('Вариант ответа 1', validators=[DataRequired()])
-    a_2 = RadioField('Вариант ответа 2', validators=[DataRequired()])
-    a_3 = RadioField('Вариант ответа 3', validators=[DataRequired()])
-    a_4 = RadioField('Вариант ответа 4', validators=[DataRequired()])
-    r_a = StringField('Содержание правильного ответа', validators=[DataRequired()])
-    ball = IntegerField('Колличество баллов за тест', validators=[DataRequired()])
+    a_1 = StringField('Вариант ответа 1:')
+    a_2 = StringField('Вариант ответа 2:')
+    a_3 = StringField('Вариант ответа 3:')
+    a_4 = StringField('Вариант ответа 4:')
+    r_a = StringField('Содержание правильного ответа:')
+    ball = IntegerField('Колличество баллов за тест:')
     submit = SubmitField('Добавить')

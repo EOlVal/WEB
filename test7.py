@@ -26,7 +26,10 @@ def main():
 
     @app.route("/")
     def index():
-        return render_template("index.html")
+        db_sess = db_session.create_session()
+        tests = db_sess.query(Tests)
+
+        return render_template("index.html", tests=tests)
 
     @app.route('/login', methods=['GET', 'POST'])
     def login():
@@ -42,17 +45,24 @@ def main():
                                    form=form)
         return render_template('login.html', title='Авторизация', form=form)
 
-    @app.route('/rules', methods=['GET', 'POS'])
+    @app.route('/rules', methods=['GET', 'POST'])
     def rules():
         return render_template('rules.html', title='Правила')
 
-    @app.route('/p_s', methods=['GET', 'POS'])
+    @app.route('/p_s', methods=['GET', 'POST'])
     def p_s():
         return render_template('p_s.html', title='Present Simple')
 
-    @app.route('/p_c', methods=['GET', 'POS'])
+    @app.route('/p_c', methods=['GET', 'POST'])
     def p_c():
         return render_template('p_c.html', title='Present Continuous')
+
+    @app.route('/current_test', methods=['GET', 'POST'])
+    def current_test():
+        db_sess = db_session.create_session()
+        tests = db_sess.query(Tests)
+
+        return render_template('current_test.html', tests=tests, title='Test')
 
     @app.route('/logout')
     @login_required
@@ -66,17 +76,12 @@ def main():
         form = TestForm()
         if form.validate_on_submit():
             db_sess = db_session.create_session()
-            tests = Tests()
-            tests.title = form.title.data
-            tests.quest = form.quest.data
-            tests.a_1 = form.a_1.data
-            tests.a_2 = form.a_1.data
-            tests.a_3 = form.a_1.data
-            tests.a_4 = form.a_1.data
-            tests.r_a = form.r_a.data
-            tests.ball = form.ball.data
-            current_user.news.append(tests)
-            db_sess.merge(current_user)
+            tests = Tests(title=form.title.data, quest=form.quest.data, a_1=form.a_1.data,
+                          a_2=form.a_2.data, a_3=form.a_3.data, a_4=form.a_4.data,
+                          r_a=form.r_a.data, ball=form.ball.data)
+            # current_user.tests.append(tests)
+            # db_sess.merge(current_user)
+            db_sess.add(tests)
             db_sess.commit()
             return redirect('/')
         return render_template('news.html', title='Добавление теста',

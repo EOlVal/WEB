@@ -20,7 +20,6 @@ class Tests(SqlAlchemyBase):
     a_4 = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     r_a = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     ball = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
-
-    theme_id = sqlalchemy.Column(sqlalchemy.Integer,
-                                 sqlalchemy.ForeignKey("theme.id"))
-    theme = orm.relationship('Theme')
+    user_id = sqlalchemy.Column(sqlalchemy.Integer,
+                                sqlalchemy.ForeignKey("users.id"))
+    user = orm.relationship('User')
