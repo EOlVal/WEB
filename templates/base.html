@@ -11,48 +11,41 @@
 </head>
 
 
-<body>
+<body style="font-family: 'WESTERN'; font-size: 125%">
 <header>
-    <nav class="navbar navbar-light bg-danger">
-        <a class="navbar-brand" style="background-color: #dc3545; position: absolute;width: 100%;left: 0;top: 0;
+    <nav class="navbar navbar-light bg-danger" style="background-color: #dc3545;">
+        <a class="navbar-brand" style=" position: absolute;width: 100%;left: 0;top: 0;
 text-align: center;
-font-size: 200%;
-bottom: 1px" href="/">Learn English Easily</a>
+font-size: 200%; font-weight: bold; bottom: 1px;" href="/">Learn English Easily</a>
         {% if current_user.is_authenticated %}
-        <a class="btn btn-outline-dark" style="position: relative;
-    bottom: -2px" href="/logout">Выйти из аккаунта</a>
-        <a class="btn btn-outline-dark" style="position: relative;
-    bottom: -7px" href="/rules">Учебник</a>
+        <a class="btn btn-danger" style="position: relative;
+    bottom: -2px; font-weight: bold; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4); ;border-radius: 12px;color: #000000;" href="/logout">Выйти из аккаунта</a>
+        <a class="btn btn-danger" style="position: relative;
+    left: -850px; bottom: -2px; font-weight: bold; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4); ;border-radius: 12px;color: #000000;" href="/rules">Учебник</a>
         {% else %}
         <p>
-            <a class="btn btn-outline-dark" style="position: relative;
-    bottom: -7px" href="/register">Зарегистрироваться</a>
-            <a class="btn btn-outline-dark" style="position: relative;
-    bottom: -7px" href="/login">Войти</a>
-            <a class="btn btn-outline-dark" style="position: relative;
-    bottom: -7px" href="/rules">Учебник</a>
+            <a class="btn btn-danger" style="position: relative;
+    bottom: -7px; font-weight: bold; box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.4);border-radius: 12px; color: #000000;" href="/register">Зарегистрироваться</a>
+            <a class="btn btn-danger" style="position: relative;
+    bottom: -7px; font-weight: bold; box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.4); ;border-radius: 12px;color: #000000;" href="/login">Войти</a>
+            <a class="btn btn-danger" style="position: relative;
+    bottom: -7px; font-weight: bold; box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.4); ;border-radius: 12px;color: #000000;" href="/rules">Учебник</a>
         </p>
         {% endif %}
 
-
-        <div class="pos-f-t">
-            <div class="collapse" id="navbarToggleExternalContent">
-                <div class="bg-dark p-4">
-                    <h4 class="text-black">Collapsed content</h4>
-                    <span class="text-muted">Toggleable via the navbar brand.</span>
-                </div>
-            </div>
-            <nav class="navbar navbar-dark bg-danger">
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarToggleExternalContent"
-                        aria-controls="navbarToggleExternalContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
+        <div class="dropdown">
+            <button class="btn btn-danger" type="button" style="width: 80px; ;border-radius: 12px;box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.4);" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                     <span class="navbar-toggler-icon"></span>
-                </button>
-            </nav>
+
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/index/">Мой альбом</a></li>
+                <li><a class="dropdown-item" href="/user_edit">Редактор профиля</a></li>
+                <li><a class="dropdown-item" href="/passw_edit">Cмена пароля</a></li>
+                <li><a class="dropdown-item" href="/logout">Выход</a></li>
+            </ul>
         </div>
-
-
     </nav>
 </header>
 <!-- Begin page content -->

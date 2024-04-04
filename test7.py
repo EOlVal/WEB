@@ -57,12 +57,15 @@ def main():
     def p_c():
         return render_template('p_c.html', title='Present Continuous')
 
-    @app.route('/current_test', methods=['GET', 'POST'])
-    def current_test():
-        db_sess = db_session.create_session()
-        tests = db_sess.query(Tests)
-
-        return render_template('current_test.html', tests=tests, title='Test')
+    @app.route('/current_test/<test_id>', methods=['GET', 'POST'])
+    def current_test(test_id):
+        if request.method == 'GET':
+            db_sess = db_session.create_session()
+            tests = db_sess.query(Tests).filter(test_id == Tests.id)
+            return render_template('current_test.html', tests=tests, title='Test')
+        elif request.method == 'POST':
+            print(request.form['answer'])
+            return "Форма отправлена"
 
     @app.route('/logout')
     @login_required

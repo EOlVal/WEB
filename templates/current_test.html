@@ -3,7 +3,6 @@
 {% block content %}
 
 {% for item in tests %}
-{}}
 
 <h1>Тест №{{item.id}}</h1>
 <div class="card border-dark mb-3" style="max-width: 79rem; bottom: -15px">
@@ -12,30 +11,34 @@
         <h5 class="card-text">Примечание:</h5><br>
         <h5 class="card-text">Вопрос - <b>{{item.quest}}</b></h5><br>
 
+        <form class="login_form" method="post">
+        <div class="form-group">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+            <input class="form-check-input" type="radio" name="anwer" value={{a_1}} id="flexCheckDefault1">
             <label class="form-check-label" for="flexCheckDefault1" style="font-weight: bold">{{item.a_1}}</label>
         </div>
 <br>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+            <input class="form-check-input" type="radio" name="anwer" value={{a_2}} id="flexCheckDefault2">
             <label class="form-check-label" for="flexCheckDefault2" style="font-weight: bold">{{item.a_2}}</label>
         </div>
 <br>
 
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+            <input class="form-check-input" type="radio" name="anwer" value={{a_3}} id="flexCheckDefault3">
             <label class="form-check-label" for="flexCheckDefault3" style="font-weight: bold">{{item.a_3}}</label>
         </div>
 <br>
 
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+            <input class="form-check-input" type="radio" name="anwer" value={{a_4}} id="flexCheckDefault4">
             <label class="form-check-label" for="flexCheckDefault4" style="font-weight: bold">{{item.a_4}}</label>
+        </div>
         </div>
 <br>
 
-        <a href="#" class="btn btn-secondary">Ответить</a>
+        <a class="btn btn-danger" href="">Ответить</a>
+        </form>
     </div>
 </div>
 {% endfor %}
