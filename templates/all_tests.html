@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+{% for item in tests %}
+<div class="card border-dark mb-3" style="max-width: 45rem; bottom: -15px">
+    <div class="card-body">
+        <h5 class="card-title">Тест по теме: {{item.title}} №{{item.id}}</h5>
+        <h5 class="card-text">Баллов - {{item.ball}}</h5>
+
+        <h5 class="card-text">Тест пройден - {{y_or_n}}</h5>
+
+        {% if y_or_n == "Нет" %}
+        <a href="/current_test/{{item.id}}" class="btn btn-danger">Пройти тест</a>
+        {% endif %}
+
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+
+{% if not current_user.is_authenticated %}
+<h3 style="text-align: center;
+vertical-align: middle;
+line-height: 90px;">Вы не можете проходить тесты</h3>
+
+<h3 style="text-align: center;
+vertical-align: middle;
+line-height: 90px;">Зарегистрируйтесь или войдите в аккаунт</h3>
+{% endif %}
+{% endblock %}

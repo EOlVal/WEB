@@ -3,10 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/icons/bootstrap-icons.css">
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
     <title>{{title}}</title>
 </head>
 
@@ -14,38 +13,48 @@
 <body style="font-family: 'WESTERN'; font-size: 125%">
 <header>
     <nav class="navbar navbar-light bg-danger" style="background-color: #dc3545;">
-        <a class="navbar-brand" style=" position: absolute;width: 100%;left: 0;top: 0;
+        <a class="navbar-brand" style="position: absolute; width: 100%; left: 0; top: 0;
 text-align: center;
 font-size: 200%; font-weight: bold; bottom: 1px;" href="/">Learn English Easily</a>
-        {% if current_user.is_authenticated %}
-        <a class="btn btn-danger" style="position: relative;
-    bottom: -2px; font-weight: bold; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4); ;border-radius: 12px;color: #000000;" href="/logout">Выйти из аккаунта</a>
-        <a class="btn btn-danger" style="position: relative;
-    left: -850px; bottom: -2px; font-weight: bold; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4); ;border-radius: 12px;color: #000000;" href="/rules">Учебник</a>
-        {% else %}
-        <p>
+            {% if current_user.is_authenticated %}
             <a class="btn btn-danger" style="position: relative;
-    bottom: -7px; font-weight: bold; box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.4);border-radius: 12px; color: #000000;" href="/register">Зарегистрироваться</a>
+        bottom: -7px; left: 30px; font-weight: bold; box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.4);border-radius: 12px; color: #000000;" href="/logout">Выйти из аккаунта</a>
             <a class="btn btn-danger" style="position: relative;
-    bottom: -7px; font-weight: bold; box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.4); ;border-radius: 12px;color: #000000;" href="/login">Войти</a>
-            <a class="btn btn-danger" style="position: relative;
-    bottom: -7px; font-weight: bold; box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.4); ;border-radius: 12px;color: #000000;" href="/rules">Учебник</a>
-        </p>
-        {% endif %}
+        left: -1074px; bottom: -7px; font-weight: bold; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4); ;border-radius: 12px;color: #000000;" href="/rules">Учебник</a>
+            {% endif %}
 
-        <div class="dropdown">
-            <button class="btn btn-danger" type="button" style="width: 80px; ;border-radius: 12px;box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.4);" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <span class="navbar-toggler-icon"></span>
+            {% if not current_user.is_authenticated %}
+            <p>
+                <a class="btn btn-danger" style="position: relative;
+        bottom: -7px; left: 30px; font-weight: bold; box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.4);border-radius: 12px; color: #000000;" href="/register">Зарегистрироваться</a>
+                <a class="btn btn-danger" style="position: relative;
+        bottom: -7px; left: 30px; font-weight: bold; box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.4); ;border-radius: 12px;color: #000000;" href="/login">Войти</a>
+                <a class="btn btn-danger" style="position: relative;
+        bottom: -7px; left: 30px; font-weight: bold; box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.4); ;border-radius: 12px;color: #000000;" href="/rules">Учебник</a>
+            </p>
+            {% endif %}
 
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/index/">Мой альбом</a></li>
-                <li><a class="dropdown-item" href="/user_edit">Редактор профиля</a></li>
-                <li><a class="dropdown-item" href="/passw_edit">Cмена пароля</a></li>
-                <li><a class="dropdown-item" href="/logout">Выход</a></li>
-            </ul>
-        </div>
+            <div class="dropdown" style="left: -30px">
+                <button class="btn btn-danger" type="button" style="width: 80px; ;border-radius: 12px;box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.4);" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <span class="navbar-toggler-icon"></span>
+
+                </button>
+                <ul class="dropdown-menu" style="left: -55px">
+                    <li><a class="dropdown-item" href="/">Главная страница</a></li>
+                    <li><a class="dropdown-item" href="/all_tests">Тесты</a></li>
+                    {% if current_user.is_authenticated and current_user.status == 2%}
+                    <li><a class="dropdown-item" href="/news">Добавить тест</a></li>
+                    {% endif %}
+                    {% if current_user.is_authenticated %}
+                    <li><a class="dropdown-item" href="/result">Ваши результаты</a></li>
+                    {% endif %}
+                    <li><a class="dropdown-item" href="/rules">Учебник</a><br></li>
+                    <li><a class="dropdown-item" href="#">Служба поддержки</a></li>
+                    <li><a class="dropdown-item" href="/logout">Выход</a></li>
+                    <li><a class="dropdown-item" href="#">О нас</a></li>
+                </ul>
+            </div>
     </nav>
 </header>
 <!-- Begin page content -->

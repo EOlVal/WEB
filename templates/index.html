@@ -1,75 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Тесты</h1>
+<h1>Learn English Easily is a unique website that will help you learn English easily and effectively. <br>Here you will find everything you need to master the language, from tests and textbooks to tools for creating your own tests for teachers.<br>
 
-{% if current_user.is_authenticated %}
-<a href="/news" class="btn btn-danger">Добавить тест</a>
-{% endif %}
-{% for item in tests %}
-<div class="card border-dark mb-3" style="max-width: 45rem; bottom: -15px">
-    <div class="card-body">
-        <h5 class="card-title">Тест по теме: {{item.title}} №{{item.id}}</h5>
-        <h5 class="card-text">Баллов - {{item.ball}}</h5>
-        <a href="/current_test/{{item.id}}" class="btn btn-danger">Пройти тест</a>
-    </div>
-</div>
+The main goal of the site is to provide users with the opportunity to learn English at different levels of knowledge, from beginners to experienced students. <br>The site features a variety of tests that will help you assess your level and identify areas that need improvement.<br>
 
-<!--<div class="col-md6 border rounded">-->
-<!--    <h2>{{item.title}}</h2>-->
-<!--    <div>-->
-<!--        {{item.content}}-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        Автор - {{item.user.name}}, Дата написания - {{item.created_date}}-->
-<!--    </div>-->
-<!--    {% if current_user.is_authenticated and current_user == item.user %}-->
-<!--    <div>-->
-<!--        <a href="/news/{{ item.id }}" class="btn btn-warning">-->
-<!--            Изменить-->
-<!--        </a>-->
-<!--        <a href="/news_delete/{{ item.id }}" class="btn btn-danger">-->
-<!--            Удалить-->
-<!--        </a>-->
-<!--    </div>-->
-<!--    {% endif %}-->
-</div>
-{% endfor %}
+You also have access to an extensive library of textbooks that include all verb tenses and other important aspects of the English language. <br>This will allow you to deepen your knowledge and improve your skills in reading, writing, listening, and speaking.</h1>
 {% endblock %}
-
-
-<!--{% for item in tests%}-->
-<!--<div class="card border-dark mb-3" style="max-width: 18rem; bottom: -15px">-->
-<!--    <h2>{{item.title}}</h2>-->
-
-<!--    <div>-->
-<!--        {{item.quest}}-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--        {{item.a_1}}-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--        {{item.a_2}}-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--        {{item.a_3}}-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--        {{item.a_4}}-->
-<!--    </div>-->
-<!--    {% if current_user.is_authenticated and current_user == item.user %}-->
-<!--    <div>-->
-<!--        <a href="/news/{{ item.id }}" class="btn btn-danger">-->
-<!--            Изменить-->
-<!--        </a>-->
-<!--        <a href="/news_delete/{{ item.id }}" class="btn btn-danger">-->
-<!--            Удалить-->
-<!--        </a>-->
-<!--    </div>-->
-<!--    {% endif %}-->
-<!--</div>-->
-<!--{% endfor %}-->

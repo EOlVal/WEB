@@ -1,19 +1,22 @@
-# Удаляем новости
-# + обработчик delete_news()
-
 from flask import Flask, render_template, request, redirect, abort
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from data import db_session
 from data.users import User
 from data.tests import Tests
+from data.results import Results
 from forms.user import RegisterForm
 from forms.login import LoginForm
 from forms.test import TestForm
+import datetime
 
 app = Flask(__name__)
+app.debug = False
+
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 login_manager = LoginManager()
 login_manager.init_app(app)
+y_or_n = ""
+cur_sh = 0
 
 
 def main():
@@ -26,10 +29,19 @@ def main():
 
     @app.route("/")
     def index():
+        return render_template("index.html")
+
+    @app.route("/all_tests")
+    def all_tests():
+        db_sess = db_session.create_session()
+        user = db_sess.query(User)
+        global y_or_n, cur_sh
+        if cur_sh == 0:
+            y_or_n = 'Нет'
         db_sess = db_session.create_session()
         tests = db_sess.query(Tests)
 
-        return render_template("index.html", tests=tests)
+        return render_template("all_tests.html", tests=tests, y_or_n=y_or_n, user=user)
 
     @app.route('/login', methods=['GET', 'POST'])
     def login():
@@ -59,13 +71,43 @@ def main():
 
     @app.route('/current_test/<test_id>', methods=['GET', 'POST'])
     def current_test(test_id):
+        global y_or_n, cur_sh
+        db_sess = db_session.create_session()
+        tests = db_sess.query(Tests).filter(test_id == Tests.id)
+
         if request.method == 'GET':
-            db_sess = db_session.create_session()
-            tests = db_sess.query(Tests).filter(test_id == Tests.id)
             return render_template('current_test.html', tests=tests, title='Test')
+
         elif request.method == 'POST':
-            print(request.form['answer'])
-            return "Форма отправлена"
+            for item in tests:
+                if request.form['answer'] == item.r_a:
+                    cur_sh = 1
+                    y_or_n = 'Верно'
+                    results = Results(result=item.ball, date=datetime.datetime.now(), user_id=current_user.id,
+                                      test_id=item.id)
+                    db_sess.add(results)
+                    db_sess.commit()
+                    return render_template("index.html", tests=tests, y_or_n=y_or_n)
+                else:
+                    y_or_n = 'Неверно'
+                    return render_template("index.html", tests=tests, y_or_n=y_or_n)
+
+            return render_template("index.html", tests=tests, y_or_n="Нет")
+
+    @app.route('/result', methods=['GET', 'POST'])
+    def result():
+        db_sess = db_session.create_session()
+        results = db_sess.query(Results).filter(current_user.id == Results.user_id)
+        ball = 0
+        tests_kol = []
+        date = []
+        for i in results:
+            ball += i.result
+            tests_kol.append(i.id)
+            date.append(f'{i.date}')
+        date_res = date[-1]
+        kol = tests_kol[-1]
+        return render_template('result.html', results=results, ball=ball, kol=kol, date_res=date_res)
 
     @app.route('/logout')
     @login_required
@@ -82,60 +124,11 @@ def main():
             tests = Tests(title=form.title.data, quest=form.quest.data, a_1=form.a_1.data,
                           a_2=form.a_2.data, a_3=form.a_3.data, a_4=form.a_4.data,
                           r_a=form.r_a.data, ball=form.ball.data)
-            # current_user.tests.append(tests)
-            # db_sess.merge(current_user)
             db_sess.add(tests)
             db_sess.commit()
             return redirect('/')
         return render_template('news.html', title='Добавление теста',
                                form=form)
-    #
-    # @app.route('/news/<int:id>', methods=['GET', 'POST'])
-    # @login_required
-    # def edit_news(id):
-    #     form = TestForm()
-    #     if request.method == "GET":
-    #         db_sess = db_session.create_session()
-    #         news = db_sess.query(Tests).filter(Tests.id == id,
-    #                                           Tests.user == current_user
-    #                                           ).first()
-    #         if news:
-    #             form.title.data = news.title
-    #             form.content.data = news.content
-    #             form.is_private.data = news.is_private
-    #         else:
-    #             abort(404)
-    #     if form.validate_on_submit():
-    #         db_sess = db_session.create_session()
-    #         news = db_sess.query(Tests).filter(Tests.id == id,
-    #                                           Tests.user == current_user
-    #                                           ).first()
-    #         if news:
-    #             news.title = form.title.data
-    #             news.content = form.content.data
-    #             news.is_private = form.is_private.data
-    #             db_sess.commit()
-    #             return redirect('/')
-    #         else:
-    #             abort(404)
-    #     return render_template('news.html',
-    #                            title='Редактирование новости',
-    #                            form=form
-    #                            )
-    #
-    # @app.route('/news_delete/<int:id>', methods=['GET', 'POST'])
-    # @login_required
-    # def delete_news(id):
-    #     db_sess = db_session.create_session()
-    #     news = db_sess.query(Tests).filter(Tests.id == id,
-    #                                       Tests.user == current_user
-    #                                       ).first()
-    #     if news:
-    #         db_sess.delete(news)
-    #         db_sess.commit()
-    #     else:
-    #         abort(404)
-    #     return redirect('/')
 
     @app.route('/register', methods=['GET', 'POST'])
     def reqister():
@@ -153,7 +146,8 @@ def main():
             user = User(
                 name=form.name.data,
                 email=form.email.data,
-                about=form.about.data
+                about=form.about.data,
+                status=1
             )
             user.set_password(form.password.data)
             db_sess.add(user)

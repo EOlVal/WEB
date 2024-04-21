@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if ball and kol%}
+<div class="card border-dark mb-3" style="max-width: max-width: 79rem; bottom: -15px">
+    <div class="card-body">
+        <h5 class="card-title" style="font-size: 200%; font-weight: bold;text-align: center;">Ваши результаты</h5>
+        <li class="card-text" style="font-size: 150%; font-weight: bold;">Всего баллов - {{ball}}</li>
+        <li class="card-text" style="font-size: 150%; font-weight: bold;">Количество пройденных тестов - {{kol}}</li>
+        <li class="card-text" style="font-size: 150%; font-weight: bold;">Дата прохождения последнего теста - {{date_res}}</li>
+
+    </div>
+</div>
+{% endif %}
+
+{% if not ball and not kol%}
+<div class="card border-dark mb-3" style="max-width: max-width: 79rem; bottom: -15px">
+    <div class="card-body">
+        <h5 class="card-title" style="font-size: 200%; font-weight: bold;text-align: center;">Ваши результаты</h5>
+        <li class="card-text" style="font-size: 150%; font-weight: bold;">Всего баллов - 0</li>
+        <li class="card-text" style="font-size: 150%; font-weight: bold;">Количество пройденных тестов - 0</li>
+        <li class="card-text" style="font-size: 150%; font-weight: bold;">Дата прохождения последнего теста - </li>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock %}
