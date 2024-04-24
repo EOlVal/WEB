@@ -15,12 +15,10 @@ app.debug = False
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 login_manager = LoginManager()
 login_manager.init_app(app)
-y_or_n = ""
-cur_sh = 0
 
 
 def main():
-    db_session.global_init("db/blogs.db")
+    db_session.global_init("db/english.db")
 
     @login_manager.user_loader
     def load_user(user_id):
@@ -34,14 +32,9 @@ def main():
     @app.route("/all_tests")
     def all_tests():
         db_sess = db_session.create_session()
-        user = db_sess.query(User)
-        global y_or_n, cur_sh
-        if cur_sh == 0:
-            y_or_n = 'Нет'
-        db_sess = db_session.create_session()
         tests = db_sess.query(Tests)
-
-        return render_template("all_tests.html", tests=tests, y_or_n=y_or_n, user=user)
+        result = [i.test_id for i in db_sess.query(Results).filter(current_user.id == Results.user_id)]
+        return render_template("all_tests.html", tests=tests, result=result)
 
     @app.route('/login', methods=['GET', 'POST'])
     def login():
@@ -69,9 +62,20 @@ def main():
     def p_c():
         return render_template('p_c.html', title='Present Continuous')
 
+    @app.route('/p_p', methods=['GET', 'POST'])
+    def p_p():
+        return render_template('p_p.html', title='Present Perfect')
+
+    @app.route('/help', methods=['GET', 'POST'])
+    def help():
+        return render_template('help.html', title='Help')
+
+    @app.route('/about_us', methods=['GET', 'POST'])
+    def about_us():
+        return render_template('about_us.html', title='About')
+
     @app.route('/current_test/<test_id>', methods=['GET', 'POST'])
     def current_test(test_id):
-        global y_or_n, cur_sh
         db_sess = db_session.create_session()
         tests = db_sess.query(Tests).filter(test_id == Tests.id)
 
@@ -80,19 +84,14 @@ def main():
 
         elif request.method == 'POST':
             for item in tests:
-                if request.form['answer'] == item.r_a:
-                    cur_sh = 1
-                    y_or_n = 'Верно'
-                    results = Results(result=item.ball, date=datetime.datetime.now(), user_id=current_user.id,
-                                      test_id=item.id)
-                    db_sess.add(results)
-                    db_sess.commit()
-                    return render_template("index.html", tests=tests, y_or_n=y_or_n)
-                else:
-                    y_or_n = 'Неверно'
-                    return render_template("index.html", tests=tests, y_or_n=y_or_n)
+                if request.form['id'] != item.r_a:
+                    item.ball = 0
 
-            return render_template("index.html", tests=tests, y_or_n="Нет")
+                results = Results(result=item.ball, date=datetime.datetime.now(), user_id=current_user.id,
+                                  test_id=item.id)
+                db_sess.add(results)
+                db_sess.commit()
+            return render_template("index.html", tests=tests)
 
     @app.route('/result', methods=['GET', 'POST'])
     def result():
@@ -115,9 +114,9 @@ def main():
         logout_user()
         return redirect("/")
 
-    @app.route('/news', methods=['GET', 'POST'])
+    @app.route('/add_test', methods=['GET', 'POST'])
     @login_required
-    def add_news():
+    def add_test():
         form = TestForm()
         if form.validate_on_submit():
             db_sess = db_session.create_session()
@@ -127,7 +126,7 @@ def main():
             db_sess.add(tests)
             db_sess.commit()
             return redirect('/')
-        return render_template('news.html', title='Добавление теста',
+        return render_template('add_test.html', title='Добавление теста',
                                form=form)
 
     @app.route('/register', methods=['GET', 'POST'])

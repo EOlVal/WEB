@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block content %}
+<title>Present Perfect</title>
+<div class="card border-dark mb-3" style="max-width: 79rem; bottom: -15px">
+    <div class="card-header">Present Perfect</div>
+    <div class="card-body">
+        <h1 class="card-title">Зачем нужен Present Perfect</h1>
+        <p class="card-text">Present Perfect - это настоящее совершенное время в английском языке. Оно обозначает действие, которое завершилось в настоящий момент времени. </p>
+        <p class="card-text" style="font-weight: bold">Например: <b>I have already done my homework — Я уже сделал домашнее задание</b>;<br>
+                  <b>Students (they) have tried to pass exam. — Студенты пытались сдать экзамен</b>;<br>
+                  <b>You have seen a miracle. — Ты видел чудо.</b></p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Утвердительная форма</th>
+                <th scope="col">Вопросительная форма</th>
+                <th scope="col">Отрицательная форма</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>He, She, It has V3</td>
+                <td>Has He, She, It V3?</td>
+                <td>He, She, It has not V3</td>
+            </tr>
+            <tr>
+                <td>We, You, They, I have V3</td>
+                <td>Have We, You, They, I V3?</td>
+                <td>We, You, They, I have not V3</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
