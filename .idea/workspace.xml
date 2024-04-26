@@ -5,28 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="429f993d-fe00-48f3-98e2-61b8c28f6c29" name="Changes" comment="почти финал(небольшая проблема с проверкой ответов)">
-      <change afterPath="$PROJECT_DIR$/data/level_00.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/level_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/level_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/blogs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/first.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/continue.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/news.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ТЗ.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/english.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/english.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/about_us.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about_us.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/all_tests.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/all_tests.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/current_test.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/current_test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/help.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/help.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/p_c.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/p_c.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/p_p.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/p_p.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/p_s.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/p_s.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/rules.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/rules.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +43,9 @@
     &quot;accountId&quot;: &quot;a92221bd-f1d1-4d29-b1f5-0573d0543abd&quot;
   }
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
