@@ -4,24 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="429f993d-fe00-48f3-98e2-61b8c28f6c29" name="Changes" comment="куча нового(или почти)">
-      <change afterPath="$PROJECT_DIR$/templates/about_us.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/help.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/WEB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WEB.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="429f993d-fe00-48f3-98e2-61b8c28f6c29" name="Changes" comment="почти финал(небольшая проблема с проверкой ответов)">
+      <change afterPath="$PROJECT_DIR$/data/level_00.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/level_01.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/level_02.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/blogs.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/first.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/continue.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/news.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ТЗ.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/themes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/blogs.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/english.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/english.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/english.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/about_us.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about_us.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/all_tests.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/all_tests.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/current_test.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/current_test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/help.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/help.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/p_c.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/p_c.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/p_p.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/p_p.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/p_s.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/p_s.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/rules.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/rules.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test7.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,27 +75,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.41E9E1_Afanasev.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.new.executor": "Run",
-    "Python.regeg.executor": "Run",
-    "Python.server.executor": "Run",
-    "Python.sgsvsv.executor": "Run",
-    "Python.test1.executor": "Run",
-    "Python.test2.executor": "Run",
-    "Python.test3.executor": "Run",
-    "Python.test7.executor": "Run",
-    "Python.фвфцв.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "new",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.41E9E1_Afanasev.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.new.executor&quot;: &quot;Run&quot;,
+    &quot;Python.regeg.executor&quot;: &quot;Run&quot;,
+    &quot;Python.server.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sgsvsv.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test7.executor&quot;: &quot;Run&quot;,
+    &quot;Python.фвфцв.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;new&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.server">
     <configuration name="41E9E1_Afanasev" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="WEB" />
@@ -189,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713711333951</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="почти финал(небольшая проблема с проверкой ответов)">
+      <option name="closed" value="true" />
+      <created>1713990206017</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713990206017</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -198,7 +211,8 @@
     <MESSAGE value="попытка добавить тесты" />
     <MESSAGE value="test" />
     <MESSAGE value="куча нового(или почти)" />
-    <option name="LAST_COMMIT_MESSAGE" value="куча нового(или почти)" />
+    <MESSAGE value="почти финал(небольшая проблема с проверкой ответов)" />
+    <option name="LAST_COMMIT_MESSAGE" value="почти финал(небольшая проблема с проверкой ответов)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<title>О нас</title>
+<div class="card border-dark mb-3" style="max-width: 60rem; bottom: -15px; left: 65px">
+    <div class="card-header" style="background-color: #E6E6FA">Поздравляем</div>
+    <div class="card-body">
+        <p class="card-text">Вы прошли тест</p><br>
+        <p class="card-text">Если вы хотите увидеть свои результаты или перейти ко всем тестам, то нажмите одну из кнопок</p>
+        <a class="btn btn-outline" style="position: relative;
+        bottom: -7px; left: 30px; font-weight: bold; border-radius: 12px;color: #000000;background-color: #E6E6FA" href="/result">Результаты</a> <a class="btn btn-outline" style="position: relative;
+        bottom: -7px; left: 30px; font-weight: bold; border-radius: 12px;color: #000000;background-color: #E6E6FA" href="/all_tests">Все тесты</a>
+
+    </div>
+</div>
+
+{% endblock %}

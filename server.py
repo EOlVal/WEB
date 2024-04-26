@@ -84,14 +84,14 @@ def main():
 
         elif request.method == 'POST':
             for item in tests:
-                if request.form['id'] != item.r_a:
+                if request.form['answer'] != str(item.r_a):
                     item.ball = 0
 
                 results = Results(result=item.ball, date=datetime.datetime.now(), user_id=current_user.id,
                                   test_id=item.id)
                 db_sess.add(results)
                 db_sess.commit()
-            return render_template("index.html", tests=tests)
+            return render_template("continue.html", tests=tests)
 
     @app.route('/result', methods=['GET', 'POST'])
     def result():

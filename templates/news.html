@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="post">
+        {{ form.hidden_tag() }}
+<div class="card border-dark mb-3" style="max-width: 60rem; bottom: -15px; left: 65px">
+    <p>
+        {{ form.title.label(style="font-weight: bold; position: relative; left: 50%; transform: translate(-50%, 0);font-size: 135%") }}<br>
+        {{ form.title(class="form-control", type="title", style="font-weight: bold; max-width: 45rem;
+        position: relative; left: 50%; transform: translate(-50%, 0);") }}<br>
+        {% for error in form.title.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+
+        {{ form.quest.label(style="font-weight: bold; position: relative; left: 50%; transform: translate(-50%, 0); font-size: 135%") }}<br>
+        {{ form.quest(class="form-control", type="quest", style="font-weight: bold; max-width: 45rem;
+        position: relative; left: 50%; transform: translate(-50%, 0);") }}<br>
+        {% for error in form.quest.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+
+        {{ form.a_1.label(style="font-weight: bold; position: relative; left: 50%; transform: translate(-50%, 0);font-size: 135%") }}<br>
+        {{ form.a_1(class="form-control", type="a_1", style="font-weight: bold; max-width: 45rem;
+        position: relative; left: 50%; transform: translate(-50%, 0);") }}<br>
+        {% for error in form.a_1.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+
+        {{ form.a_2.label(style="font-weight: bold; position: relative; left: 50%; transform: translate(-50%, 0);font-size: 135%") }}<br>
+        {{ form.a_2(class="form-control", type="a_2", style="font-weight: bold; max-width: 45rem;
+        position: relative; left: 50%; transform: translate(-50%, 0);") }}<br>
+        {% for error in form.a_2.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+
+        {{ form.a_3.label(style="font-weight: bold; position: relative; left: 50%; transform: translate(-50%, 0);font-size: 135%") }}<br>
+        {{ form.a_3(class="form-control", type="a_3", style="font-weight: bold; max-width: 45rem;
+        position: relative; left: 50%; transform: translate(-50%, 0);") }}<br>
+        {% for error in form.a_3.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+
+        {{ form.a_4.label(style="font-weight: bold; position: relative; left: 50%; transform: translate(-50%, 0);font-size: 135%") }}<br>
+        {{ form.a_4(class="form-control", type="a_4", style="font-weight: bold; max-width: 45rem;
+        position: relative; left: 50%; transform: translate(-50%, 0);") }}<br>
+        {% for error in form.a_4.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+
+        {{ form.r_a.label(style="font-weight: bold; position: relative; left: 50%; transform: translate(-50%, 0);font-size: 135%") }}<br>
+        {{ form.r_a(class="form-control", type="r_a", style="font-weight: bold; max-width: 45rem;
+        position: relative; left: 50%; transform: translate(-50%, 0);") }}<br>
+        {% for error in form.r_a.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+
+        {{ form.ball.label(style="font-weight: bold; position: relative; left: 50%; transform: translate(-50%, 0);font-size: 135%") }}<br>
+        {{ form.ball(class="form-control", type="ball", style="font-weight: bold; max-width: 45rem;
+        position: relative; left: 50%; transform: translate(-50%, 0);") }}<br>
+        {% for error in form.ball.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+
+            <p>{{ form.submit(type="submit", class="btn btn-danger", style="position: relative; left: 50%; transform: translate(-50%, 0);font-size: 135%
+        font-weight: bold; max-width: 20rem") }}</p>
+    {{message}}
+    </p>
+
+</div>
+</form>
+{% endblock %}
