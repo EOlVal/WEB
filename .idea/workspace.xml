@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c22eaa1-a6f6-4f6e-859d-00c6c7a82015" name="Changes" comment="всё готово">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result.html" afterDir="false" />
-    </list>
+    <list default="true" id="3c22eaa1-a6f6-4f6e-859d-00c6c7a82015" name="Changes" comment="изменил вывод результатов, т.к. он частично не работал" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,11 +179,20 @@
       <option name="project" value="LOCAL" />
       <updated>1714219945317</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="изменил вывод результатов, т.к. он частично не работал">
+      <option name="closed" value="true" />
+      <created>1714244204939</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714244204939</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="всё готово" />
-    <option name="LAST_COMMIT_MESSAGE" value="всё готово" />
+    <MESSAGE value="изменил вывод результатов, т.к. он частично не работал" />
+    <option name="LAST_COMMIT_MESSAGE" value="изменил вывод результатов, т.к. он частично не работал" />
   </component>
 </project>
