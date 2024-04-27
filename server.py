@@ -98,8 +98,8 @@ def main():
         db_sess = db_session.create_session()
         results = db_sess.query(Results).filter(current_user.id == Results.user_id)
         ball = 0
-        tests_kol = []
-        date = []
+        tests_kol = [0]
+        date = ['0000.00.00']
         for i in results:
             ball += i.result
             tests_kol.append(i.id)
